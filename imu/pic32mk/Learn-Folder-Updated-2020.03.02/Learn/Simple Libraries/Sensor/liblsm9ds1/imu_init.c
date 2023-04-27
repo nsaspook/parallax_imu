@@ -74,9 +74,9 @@ int imu_init(int pinSCL, int pinSDIO, int pinAG, int pinM)
 	imu_SPIwriteByte(__pinM, CTRL_REG5_M, 0x00);
 
 	//Set Scales
-	imu_setGyroScale(2000); // 500
-	imu_setAccelScale(16);  // 8
-	imu_setMagScale(16);   // 12
+	imu_setGyroScale(2000); // 2000
+	imu_setAccelScale(16);  // 16
+	imu_setMagScale(16);   // 16
 
 	//Look for calibrations in NVRAM
 	char biasStamp[8] = {0};

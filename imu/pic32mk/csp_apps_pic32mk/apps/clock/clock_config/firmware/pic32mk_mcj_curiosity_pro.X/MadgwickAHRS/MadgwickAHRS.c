@@ -21,8 +21,8 @@
 //---------------------------------------------------------------------------------------------------
 // Definitions
 
-static const double sampleFreq = 2000.0f; // sample frequency in Hz
-#define betaDef		3.01f		// 2 * proportional gain
+static const double sampleFreq = 1000.0f; // sample frequency in Hz
+#define betaDef		5.01f		// 2 * proportional gain
 
 //---------------------------------------------------------------------------------------------------
 // Variable definitions
@@ -213,7 +213,7 @@ void MadgwickAHRSupdateIMU(float gx, float gy, float gz, float ax, float ay, flo
 	Madgwick_computeAngles();
 }
 
-const int expensive = 0;
+const int expensive = 1;
 //---------------------------------------------------------------------------------------------------
 // Fast inverse square-root
 // See: http://en.wikipedia.org/wiki/Fast_inverse_square_root

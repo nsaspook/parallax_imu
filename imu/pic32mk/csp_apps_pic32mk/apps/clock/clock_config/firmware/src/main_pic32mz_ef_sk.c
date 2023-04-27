@@ -175,7 +175,7 @@ int main(void)
 		 * GYRO data must be in radians per second
 		 */
 		MadgwickAHRSupdate((float) gx*rps, (float) gy*rps, (float) gz*rps, (float) ax, (float) ay, (float) az, (float) mx, (float) my, (float) mz);
-		//MahonyAHRSupdate((float) gx*rps, (float) gy*rps, (float) gz*rps, (float) ax, (float) ay, (float) az, (float) mx, (float) my, (float) mz);
+		MahonyAHRSupdate((float) gx*rps, (float) gy*rps, (float) gz*rps, (float) ax, (float) ay, (float) az, (float) mx, (float) my, (float) mz);
 		/*
 		 * linear acceleration without gravity
 		 * rotate vector to earth
@@ -193,7 +193,7 @@ int main(void)
 		accel[2] = ((double) az / SHRT_MAX - g[2])*9.8;
 
 		dtog_Set();
-		OledClearBuffer();
+//		OledClearBuffer();
 #ifdef SHOW_STATS
 		sprintf(cbuffer, "G%4d %4d %4d A %4d %4d %4d M %4d %4d %4d", gx, gy, gz, ax, ay, az, mx, my, mz);
 		eaDogM_WriteStringAtPos(10, 0, cbuffer);
@@ -229,9 +229,10 @@ int main(void)
 		eaDogM_WriteStringAtPos(15, 0, cbuffer);
 #endif
 		dtog_Set();
-		OledUpdate();
+//		OledUpdate();
 		dtog_Clear();
 		LED_Toggle();
+		CORETIMER_DelayMs(20);
 	}
 
 	/* Execution should not come here during normal operation */
